@@ -19,7 +19,7 @@
             <section>
                 <div class="section-header">
                     <div class="section-title">Open</div>
-                    <div class="total-no">59</div>
+                    <div class="total-no">55</div>
                 </div>
                 <div class="input-create-task"><input class="create-task" placeholder=" Create new Task" /></div>
                 <div id="open" class="tasks">
@@ -57,6 +57,31 @@
         <footer>
             
         </footer>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Task Details</h2>
+          </div>
+          <div class="modal-body">
+            <form name="form">
+                <div>
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title" id="modal-title" placeholder="Title" />
+                </div>
+                <div>
+                    <label for="desc">Description</label><br>
+                    <textArea id="modal-desc" name="desc" placeholder="Please enter the drscription" rows="3"></textArea>
+                </div>
+                <div><button type="submit" id="save">Save</button></div>
+                
+            </form>
+             
+          </div>
+          <div class="modal-footer">
+            <button class="close">Close</button>
+          </div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js" integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.js" integrity="sha512-d+dtcSjz831KbYcB3pS7cd3cqlaZ/gbbnZWC4KeLM8AToNtm83Rbc5au5k3bFBh6EwlphOGJtj7oDg6k+NGbPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

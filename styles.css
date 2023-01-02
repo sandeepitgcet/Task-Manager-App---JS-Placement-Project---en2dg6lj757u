@@ -157,11 +157,70 @@ hr{
     background-color: white;
 }
 
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #1f1f24;
+    width: 500px;
+    height: 500px;
+
+}
+.modal-header {
+    text-align: center;
+    padding: 2px 16px;
+    background-color: #4d654d;
+    color: white;
+}
+.modal-footer {
+padding: 2px 16px;
+background-color: #4d654d;
+color: white;
+}
+
+.modal-body, form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#title{
+    width: 100%;
+}
+
+#desc{
+    width: 100%;
+}
   
 @media only screen and (max-width: 1050px) {
     main{
         display: grid;
         grid-template-columns: repeat(2, 2fr);
+    }
+    section{
+        width: 45vw;
     }
 }
 
@@ -169,5 +228,8 @@ hr{
     main{
         display: grid;
         grid-template-columns: repeat(1, 4fr);
+    }
+    section{
+        width: 90vw;
     }
 }
