@@ -7,10 +7,11 @@
     --input_width:233px;
 }
 body{
-    background-color: #1f1f24;
+    /* background-color: #1f1f24; */
+    background: linear-gradient(to left, #282727 0%, #1f1f24 100%);
     color: white;
 }
-#root{
+/* #root{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +24,7 @@ body{
     overflow: scroll;
     padding-top: 20px;
     padding-bottom: 100px;
-}
+} */
 #root::-webkit-scrollbar {
     display: none;
 }
@@ -36,31 +37,23 @@ header input::placeholder{
 
 
 
-main{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    column-gap: 10px;
-    row-gap: 15px;
-    justify-content: space-around;
-    padding: 20px;
+/* main{
+    height: 100vh;
 }
 
 section:hover{
 
-    background-color: rgb(244, 244, 244);
-}
+    background-color: rgb(148, 148, 148);
+} */
 
 
-section{
-    background-color: white;
+/* .col{
+    background-color: rgb(162, 162, 162);
     border-radius: 6px;
-    
-    width: 250px;
     text-align: center;
-    height: 400px;
+    width: 250px;
     
-}
+} */
 
 section:first-child .section-header{
     background-color: blueviolet;
@@ -79,11 +72,11 @@ section:last-child .section-header{
     display: none;
 }
 
-.create-task:focus{
-    border: 2px solid white;
+.create-task:hover{
+    color: gray;
 }
 
-.create-task{
+/* .create-task{
     margin-top: 20px;
     width: var(--width);
     border-radius: 5px;
@@ -93,25 +86,20 @@ section:last-child .section-header{
     background-color: #1f1f24;
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+} */
 
 .input-create-task{
     background-color: black;
 }
 
 .tasks{
-    
-    padding: 5px;
-    padding-bottom: 20px;
-    height:310px;
-    overflow-y: scroll;
-    background-color: black;
+    height: 80vh;
 }
 
 
 
 
-.section-header{
+/* .section-header{
     font-size: larger;
     background-color: black;
     padding: 10px;
@@ -120,7 +108,7 @@ section:last-child .section-header{
     display: flex;
     justify-content: space-between;
 
-}
+} */
 
 .section-header .total-no{
     background-color: gray;
@@ -140,7 +128,7 @@ section:last-child .section-header{
     cursor: pointer;
 }
 
-.task{
+/* .task{
     color:black;
     height: 20px;
     border: 1px solid green;
@@ -150,12 +138,21 @@ section:last-child .section-header{
     border: 1px solid white;
     color: white;
     padding: 10px;
+} */
+
+.task{
+    /* background:linear-gradient(135deg, rgba(255,255,255,0.1) rgba(255,255,255,0.1) ); */
+    background: rgba(0,0,0,0.2);
+    overflow-y: hidden;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    
 }
 
-hr{
+/* hr{
     color: white;
     background-color: white;
-}
+} */
 
 .modal{
     display: none;
@@ -168,6 +165,8 @@ hr{
     z-index: 1;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 
 }
 
@@ -191,6 +190,7 @@ hr{
 padding: 2px 16px;
 background-color: #4d654d;
 color: white;
+justify-content: center;
 }
 
 .modal-body, form{
@@ -199,12 +199,12 @@ color: white;
     justify-content: flex-start;
 }
 
-.close {
+/* .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
+} */
 
 #title{
     width: 100%;
@@ -214,7 +214,7 @@ color: white;
     width: 100%;
 }
   
-@media only screen and (max-width: 1050px) {
+/* @media only screen and (max-width: 1050px) {
     main{
         display: grid;
         grid-template-columns: repeat(2, 2fr);
@@ -232,4 +232,4 @@ color: white;
     section{
         width: 90vw;
     }
-}
+} */

@@ -7,83 +7,126 @@
     <title>Task Manager</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root">
-        <header>
-            <h1><i class="fa-solid fa-list-check"></i>Task Manager</h1>
-        </header>
-        <main>
-            
-            <section>
-                <div class="section-header">
-                    <div class="section-title">Open</div>
-                    <div class="total-no">55</div>
-                </div>
-                <div class="input-create-task"><input class="create-task" placeholder=" Create new Task" /></div>
-                <div id="open" class="tasks">
-                    <div class="task" >
-                        <div class="task-title">Task1</div>
-                        <hr>
-                        <div class="task-desc">
-                            This is desc
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </section>
-            <section>
-                <div class="section-header">In Progress</div>
-                <div id="inProgress" class="tasks">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><i class="fa-solid fa-list-check"></i>Task Manager</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Create New Task</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-                </div>
-            </section>
-            <section>
-                <div class="section-header">Review</div>
-                <div id="inReview" class="tasks">
+      <main class="row justify-content-evenly p-3">
+          
+          <section class="col-3">
+              <div class="section-header rounded-top d-flex justify-content-between p-2">
+                  <div class="section-title">Open</div>
+                  <div class="total-no">0</div>
+              </div>
+              <div class="p-2">
+                <button class="btn btn-dark create-task w-100" type="button" >Create New Task</button>
+              </div>
+              <!-- <div class="input-create-task"><input class="create-task" placeholder=" Create new Task" /></div> -->
+              <div id="open" class="tasks">
+                <!-- <div class="task card p-2 rounded-0" >
+                  <div class="card-body p-2" style="height: 80px;">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-truncate w-100">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div> -->
+              </div>
+                  
+              
+          </section>
+          <section class="col-3">
+            <div class="section-header rounded-top d-flex justify-content-between p-2">
+              <div class="section-title">In Progress</div>
+              <div class="total-no">0</div>
+          </div>
+              <div id="inProgress" class="tasks bg-black opacity-25">
 
-                </div>
-            </section>
-            <section>
-                <div class="section-header">Done</div>
-                <div id="done" class="tasks">
+              </div>
+          </section>
+          <section  class="col-3">
+            <div class="section-header rounded-top d-flex justify-content-between p-2">
+              <div class="section-title">In Review</div>
+              <div class="total-no">0</div>
+          </div>
+              <div id="inReview" class="tasks bg-black opacity-25">
+                
 
-                </div>
-            </section>
-            
-        </main>
-        <footer>
-            
-        </footer>
-    </div>
+              </div>
+          </section>
+          <section class="col-3">
+            <div class="section-header rounded-top d-flex justify-content-between p-2">
+              <div class="section-title">Done</div>
+              <div class="total-no">0</div>
+            </div>
+              <div id="done" class="tasks bg-black opacity-25">
+                
+
+              </div>
+          </section>
+          
+      </main>
+  
     <div id="myModal" class="modal">
         <div class="modal-content">
-          <div class="modal-header">
-            <h2>Task Details</h2>
+          <div class="modal-header bg-black bg-opacity-25">
+            <h2 class="modal-title">Task Details</h2>
           </div>
           <div class="modal-body">
-            <form name="form">
+            <form id="form" action="#">
                 <div>
-                    <label for="title">Title</label><br>
-                    <input type="text" name="title" id="modal-title" placeholder="Title" />
+                    <input type="hidden" id="id" value="0" />
+                    <input type="hidden" id="category" value="open" />
                 </div>
-                <div>
+                <div class="input-group gap-1">
+                    <label for="title">Title: </label><br>
+                    <input class="ms-3 form-control" type="text" name="title" id="modal-title" placeholder="Title" required/>
+                </div>
+                <div class="input-group my-3">
                     <label for="desc">Description</label><br>
-                    <textArea id="modal-desc" name="desc" placeholder="Please enter the drscription" rows="3"></textArea>
+                    <textArea class="ms-3 form-control" id="modal-desc" name="desc" placeholder="Please enter the drscription" rows="3"></textArea>
                 </div>
-                <div><button type="submit" id="save">Save</button></div>
+                
                 
             </form>
+            <div>
+              <div class="container">
+                <div class="card-header"> Comments</div>
+                <div class="container-fluid">
+                  <ul class="comments">
+                      No Comments
+                  </ul>
+                  <button class="btn btn-group bg-dark text-white">Add Comments</button>
+                </div>
+              </div>
+            </div>
              
           </div>
-          <div class="modal-footer">
-            <button class="close">Close</button>
+          <div class="modal-footer bg-black bg-opacity-25">
+            <button class="btn btn-danger" id="deleteTask">Delete Task</button>
+            <button class="btn btn-success" type="submit" id="save">Save</button>
+            <button class="close btn btn-dark">Close</button>
           </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/fontawesome.min.js" integrity="sha512-nKvEIGRKw2OQCR34yLfnWnvrOBxidLG9aK+vzsBxCZ/9ZxgcS4FrYcN+auWUTkCitTVZAt82InDKJ7x+QtKu6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.js" integrity="sha512-d+dtcSjz831KbYcB3pS7cd3cqlaZ/gbbnZWC4KeLM8AToNtm83Rbc5au5k3bFBh6EwlphOGJtj7oDg6k+NGbPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="App.js"></script>
 </body>
