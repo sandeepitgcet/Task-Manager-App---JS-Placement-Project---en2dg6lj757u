@@ -122,7 +122,7 @@ document.querySelectorAll(".task").forEach(task=>{
 
 function showModal(event,taskId){
     console.log("task Id is "+event.target.id);
-    console.log("Src ELement "+event.currentTarget.outerHTML);
+    //console.log("Src ELement "+event.currentTarget.outerHTML);
     modal.style.display="flex";
     if(taskId==0){
         
@@ -137,12 +137,14 @@ function showModal(event,taskId){
     const desc= document.getElementById("modal-desc");
     const id = document.getElementById("id");
     const category = document.getElementById("category");
+    const modalRef = document.querySelector(".modal-header");
     if(taskId==0){
         title.value= '';
         desc.value='';
         id.value= uid;
         category.value='open';
         document.getElementById("deleteTask").disabled = true;
+        modalRef.style.backgroundColor = "blueviolet";
     }
     else{
         const task = tasks.find(x => x.id === taskId);
@@ -152,6 +154,17 @@ function showModal(event,taskId){
         id.value=task.id;
         category.value=task.status;
         document.getElementById("deleteTask").disabled = false;
+        
+    }
+    var result = tasks.find(task => task.id === id.value);
+    if(result.status==taskStatus.OPEN){
+        modalRef.style.backgroundColor = "blueviolet";
+    }else if(result.status==taskStatus.INPROGRESS){
+        modalRef.style.backgroundColor = "yellowgreen";
+    }else if(result.status==taskStatus.INPRVIEW){
+        modalRef.style.backgroundColor = "rgb(235, 60, 208)";
+    }else{
+        modalRef.style.backgroundColor = "green";
     }
     //console.log(tasks[event.target.id-1].title);
     
